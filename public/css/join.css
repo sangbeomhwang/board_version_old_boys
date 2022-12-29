@@ -1,0 +1,300 @@
+* {
+    margin : 0;
+    padding : 0;
+    color: #dadada;
+    outline: none;
+}
+
+ul, li {
+    list-style: none;
+}
+
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#wrap {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(47,47,47);
+}
+
+#logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height:auto;
+    margin : 0 auto;
+}
+
+
+
+#logo > a >  #logoimg {
+    width: 400px;
+    height: 400px;
+}
+
+#join > #joinidpw > #joinid > #alertid {
+    display: none;
+    color:red;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+#join > #joinidpw > #joinpw > #alertpw {
+    display: none;
+    color:red;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+#join > #joinidpw > #joinpw2 > #alertpw2 {
+    display: none;
+    color:red;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+#joininfo > #joinbirth > H3 {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+}
+
+#joincontact> #joinmobile > H3 {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+}
+
+#joincontact > #joinemail > H3 {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+}
+
+#bottom_area {
+    padding-bottom: 40px;
+}
+
+
+.form_area {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+}
+
+.form_area2 {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.form_area3 { 
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.box {
+    display: inline-block;
+    width:300px;
+    height:50px;
+    border: 1px solid #dadada;
+    box-sizing: border-box;
+    background-color: white;
+    margin-top:10px;
+}
+
+.box2 {
+    display: inline-block;
+    width:80px;
+    height:50px;
+    border: 1px solid #dadada;
+    box-sizing: border-box;
+    background-color: white;
+    margin-top:10px;
+}
+
+.box3 {
+    display: inline-block;
+    width:80px;
+    height:50px;
+    border: 1px solid #dadada;
+    box-sizing: border-box;
+    background-color: white;
+    margin : 10px 30px 0 30px;
+}
+
+.box4 {
+    display: inline-block;
+    width:137.5px;
+    height:50px;
+    border: 1px solid #dadada;
+    box-sizing: border-box;
+    background-color: white;
+    margin : 10px 5px 0 5px;
+}
+
+.inbox {
+    border: none;
+    width: 250px;
+    height: 30px;
+    color:black; 
+    margin : 10px 10px 10px 10px;
+}
+
+.inbox2 {
+    border: none;
+    width: 60px;
+    height: 40px;
+    color:black;
+    margin : 4px 4px 4px 4px;
+}
+
+.inbox3 {
+    border: none;
+    width: 60px;
+    height: 40px;
+    color:black;
+    margin : 4px 4px 4px 4px;
+}
+
+.inbox4 {
+    border: none;
+    width: 130px;
+    height: 40px;
+    color:black;
+    margin : 4px 4px 4px 4px;
+}
+
+.email {
+    width:15px;
+    height: 15px;
+}
+
+.btn {
+    margin-top:20px;
+    width:300px;
+    height:50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+    background: #1A1B1E;
+}
+
+.btn:hover {
+    background-color: #333;
+    color: #FABE19;
+    cursor: pointer;   background: #1A1B1E;
+}
+
+/* Footer Section */
+#footer_wrap {
+    margin-top: 100px;
+    width: 100%;
+    height: 220px;
+    display: flex;
+    background: rgb(18, 18, 18);
+  }
+  
+  #footer {
+    width: 1000px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+  
+  #footer > ul {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 20px 0;
+    margin-left: 40px;
+    box-sizing: border-box;
+  }
+  
+  #footer > ul > li > a {
+    color: #aeaeae;
+    font-size: 12px;
+    text-decoration: none;
+  }
+  
+  #footer > ul > li > .team_ob::after {
+    content: "|";
+    font-size: 11px;
+    font-weight: lighter;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  
+  #footer > ul > li > .personal {
+    font-weight: bold;
+  }
+  
+  #footer > ul > li > span {
+    font-weight: lighter;
+    color: #aeaeae;
+    font-size: 11px;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  #footer > #footer_info {
+    width: 100%;
+    display: flex;
+  }
+  
+  #footer > #footer_info > h1 {
+    padding-left: 25px;
+    box-sizing: border-box;
+  }
+  
+  #footer > #footer_info > h1 > img {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+  }
+  
+  #team_info {
+    box-sizing: border-box;
+  }
+  
+  #team_info > p {
+    color: #aeaeae;
+    font-size: 12px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  #team_info > .copyright {
+    padding: 10px 0 10px 0;
+    box-sizing: border-box;
+  }
+  

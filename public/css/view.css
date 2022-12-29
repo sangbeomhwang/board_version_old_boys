@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(64, 65, 78);
+    font-family: sans-serif;
+}
+
+#viewFrm {
+    margin-top: 160px;
+}
+
+form {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+#article {
+    background: #FFF;
+    box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    min-height: 400px;
+    margin: 20px auto;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+}
+
+#article-info {
+    display: flex;
+    justify-content:right;
+    margin: 50px 0 20px 0;
+}
+
+.subject_div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: #1a1b1e;
+    border-radius: 5px 5px 0 0;
+    padding: 15px 35px;
+    color: #FFF;
+}
+
+.subject_div > span {
+    margin-right: 20px;
+}
+
+.article_subject {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+#article-info > span {
+    margin-right: 5px;
+}
+
+.article_writer,
+.article_date,
+.article_hit {
+    padding-right: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 0.8em;
+    color: #777;
+}
+
+.article_content {
+    display: block;
+    font-size: 1.1em;
+    line-height: 1.5;
+    padding: 40px 160px;
+}
+
+.btnBox {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: 20px auto 60px auto;
+    position: relative;
+}
+
+
+.btnBox button {
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    background-color: #1a1b1e;
+    color: #fff;
+}
+
+.btnBox button:hover {
+    background-color: #333;
+    color: #fabe19;
+}
+
+.btnBox button:hover a {
+    color: #fabe19;
+}
+
+.btnBox button a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.commentBox {
+    width: 72%;
+    margin: 20px auto 100px auto;
+    position: relative;
+    border: 1px solid #aeaeae;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    background: #EFEFEF;
+}
+
+.commentList {
+    background: #EFEFEF;
+    width: 90%;
+    margin: 0px auto;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+}
+
+.commentList ul {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    list-style: none;
+    border-bottom: 1px solid #aeaeae;
+    width: 100%;
+    }
+
+    .commentList ul > li {
+        /* height: 20px; */
+    }    
+    
+    .commentList > ul > li:nth-child(1) {
+    width: 15%;
+    text-align: center;
+    }
+    
+    .commentList > ul > li:nth-child(2) {
+    width: 70%;
+    padding-left: 20px;
+    }
+    
+    .commentList > ul > li:nth-child(3) {
+    width: 10%;
+    }
+
+    .commentList > ul > li:nth-child(4) {
+        width: 5%;
+        }
+    
+    
+    .commentList > ul > li > form > button {
+        border: none;
+        width: 20px;
+        }
+
+    .commentList > p {
+        margin: 20px;
+        padding-top: 10px;
+        color: #666;
+    }    
+
+.comment_date {
+    font-size: 0.8em;
+    color: #777;
+}
+
+.commentBox > form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.commentBox form div {
+    margin-bottom: 30px;
+}
+
+.commentBox form span {
+    font-size: 0.8em;
+    color: #777;
+}
+
+.commentBox form input,
+.commentBox form textarea {
+    border-radius: 4px;
+    font-size: 1.3em;
+    background: #FFF;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 25%);
+    width: 100%;
+    overflow: hidden;
+    padding: 12px;
+    border: none;
+    outline: none;
+}
+
+.commentBox > form  button {
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    background-color: #1a1b1e;
+    color: #fff;
+    margin: 20px -20px 0 0px;
+    float: right;
+}
+
+.commentBox form button:hover {
+    background-color: #333;
+    color: #fabe19;
+}
+

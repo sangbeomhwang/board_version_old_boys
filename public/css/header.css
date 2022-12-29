@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  ul,
+  li {
+    list-style: none;
+  }
+  
+  @font-face {
+    font-family: "Pretendard-Regular";
+    src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+      format("woff");
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "KorailRoundGothicBold";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KorailRoundGothicBold.woff2")
+      format("woff2");
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: "Pretendard-Regular";
+    /* color: #ddd; */
+  }
+  
+  #wrap {
+    width: 100%;
+    /* background: rgba(18, 18, 18, 1); */
+    /* background: #1a1b1e; */
+  }
+  
+  #header_wrap {
+    width: 100%;
+    height: 70px;
+    background: transparent;
+    z-index: 2;
+  }
+  
+  #header_wrap.on {
+    background: rgba(18, 18, 18, 1);
+    transition: all 0.5s ease-out;
+    position: fixed;
+    top: 0px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px #555;
+  }
+  
+  #header_wrap.off {
+    background: transparent;
+    transition: all 0.5s ease-out;
+  }
+  
+  /* #header {
+    height: 800px;
+    background: transparent;
+  } */
+  
+  #header > ul {
+    width: 1300px;
+    height: 70px;
+    line-height: 70px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  #header > ul > li {
+    width: 80px;
+    margin: 0 10px 0 10px;
+    text-align: center;
+    position: relative;
+    color: #ddd;
+    overflow: hidden;
+  }
+  
+  #header > ul > li > a {
+    text-decoration: none;
+    color: #ddd;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+  }
+  
+  #snb {
+    position: absolute;
+    top: 10px;
+    right: 10%;
+  }
+  
+  input[id="menu_icon"] {
+    display: none;
+  }
+  
+  input[id="menu_icon"] + label {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    /* 커서를 올려놓을 때 모양이 바뀐다. */
+  }
+  
+  input[id="menu_icon"] + label > span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 5px;
+    border-radius: 30px;
+    background: #fff;
+    transition: all 0.35s;
+    /* 진행되는 과정들을 천천히 보여줄 수 있다. 0.35초 동안 진행됨 */
+    z-index: 1;
+  }
+  
+  input[id="menu_icon"] + label > span:nth-child(1) {
+    top: 0px;
+  }
+  
+  input[id="menu_icon"] + label > span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+    /* 엘리먼트를 변형할 때 쓴다. 비틀거나 구부리거나 돌릴 때 . 여러가지로 모양을 바꿀 때 */
+  }
+  
+  input[id="menu_icon"] + label > span:nth-child(3) {
+    bottom: 0px;
+  }
+  
+  input[id="menu_icon"]:checked + label > span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  
+  input[id="menu_icon"]:checked + label > span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  input[id="menu_icon"]:checked + label > span:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+  }
+  
+  #menu_icon + label + #hamburger_menu {
+    position: fixed;
+    /* 스크롤을 내리더라도 같은 위치에서 붙어다닌다. */
+    width: 100%;
+    height: 70px;
+    background: rgb(18, 18, 18);
+    top: 0px;
+    left: 0px;
+    box-sizing: border-box;
+    z-index: -1;
+    transition: all 0.35s;
+    box-shadow: 0 8px 8px -8px #555;
+  }
+  
+  #menu_icon:checked + label + #hamburger_menu {
+    right: 0px;
+    top: 70px;
+    z-index: 1;
+  }
+  
+  #menu_icon:checked + label + #hamburger_menu > ul > li {
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  
+  #menu_icon:checked + label + #hamburger_menu > ul > li > a {
+    color: rgba(240, 236, 98, 1);
+    font-size: 14px;
+    text-decoration: none;
+  }
+  
+  #hamburger_menu > ul {
+    display: flex;
+    justify-content: space-around;
+    width: 600px;
+    margin: 0 auto;
+  }
+  
+  #hamburger_menu > ul > li > a {
+    color: transparent;
+  }
+  
+  #header > ul > li:hover,
+  li.on {
+    color: rgba(250, 190, 25);
+    transition: all 0.2s ease-out;
+  }
+  
+  #header > ul > li::after {
+    content: "";
+    width: 80px;
+    height: 4px;
+    background-color: rgba(250, 190, 25);
+    position: absolute;
+    bottom: 0px;
+    left: -80px;
+    transition: all 0.2s ease-out;
+  }
+  
+  #header > ul > li:hover::after {
+    left: 0px;
+    transition: all 0.3s ease-in;
+  }
+  
+  li.hover {
+    content: "";
+    width: 80px;
+    height: 70px;
+    color: black;
+    background-color: rgba(250, 190, 25);
+    transition: all 0.2s ease-out;
+  }
+  

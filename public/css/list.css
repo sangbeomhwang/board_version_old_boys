@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(64,65,78);
+}
+
+
+#wrap {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+table {
+    border: 1px #aeaeae solid;
+    font-size: .8em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+    width: 90%;
+    margin: 150px auto 0 auto;
+    border-collapse: collapse;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+h2 {
+    display: inline-block;
+    padding: 50px 0 0 50px;
+}
+
+.th {
+    font-weight: bold;
+    font-size: 12px;
+    color: #fff;
+    background: #1A1B1E;
+    text-align: center;
+}
+
+.index {
+    width: 7%;
+}
+
+.subject {
+    width: 60%;
+    padding-left: 30%;
+}
+
+.writer {
+    width: 15%;
+}
+
+.date {
+    width: 11%;
+}
+
+.hit {
+    width: 7%;
+}
+
+#btnBox {
+    margin: 20px auto;
+    display: flex;
+    justify-content:space-around;
+    text-align: center;
+    width: 20%;
+    position: relative;
+}
+
+#btnBox > p {
+    position: absolute;
+    left: -170%;
+    float: left;
+    color: #ddd;
+    font-size: 12px;
+}
+
+
+.paging {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 240px;
+}
+
+.pageMove {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    /* border: #514941 1px solid; */
+    /* background-color: #514941; */
+    text-decoration: none;
+}
+.pageMove > button {
+    border: none;
+}
+
+
+.prev, .next {
+    justify-content: center;
+    width: 100px;
+}
+
+.prev > button , .next > button {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border: none;
+    border-radius: 3px;
+    background-color: #1A1B1E;
+    color: #fff;
+    text-align: center;
+}
+
+.prev > button:hover,.next > button:hover {
+    background-color: #333;
+    color: #FABE19;
+    cursor: pointer;
+}
+
+
+.goWrite > button {
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    background: #1A1B1E;
+    right: -170%;
+    float: right;
+}
+
+.goWrite > button:hover > a {
+    background: #000;
+    color: #FABE19;
+    cursor: pointer;
+}
+
+.goWrite > button > a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+#searchBox {
+    margin: 20px auto 100px auto;
+    display: flex;
+    justify-content:space-around;
+    text-align: center;
+    width: 40%;
+    position: relative;
+}
+
+#searchBox > form > div {
+    width: 100%;
+    height: 24;
+    border-radius: 4px;
+    background: #fff;
+}
+
+#searchBox > form > div > select {
+    border: none;
+    outline: none;
+}
+
+#searchBox > form > div > input {
+    border: none;
+    outline: none;
+    padding-left: 4px;
+}
+
+#searchBox > form > div > button {
+    width: 38px;
+    height: 24px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    line-height: 12px;
+    text-align: center;
+    background: #1A1B1E;
+}
+
+
+
+#searchBox > form > div > button:hover {
+    background: #333;
+    cursor: pointer;
+}
+
+
+td {
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    background: #fff;
+    padding: 1em .5em;
+    vertical-align: middle;
+    text-align: center;
+}
+
+tr>td:nth-child(2) {
+    text-align: left;
+}
+
+a {
+    color: #1A1B1E;
+    text-decoration: none;
+}
+
+@media all and (max-width: 768px) {
+
+    table,
+    thead,
+    tbody,
+    .th,
+    td,
+    tr {
+        display: block;
+    }
+
+
+    table {
+        position: relative;
+        padding-bottom: 0;
+        border: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    }
+
+    thead {
+        float: left;
+        white-space: nowrap;
+    }
+
+    tbody {
+        overflow-x: auto;
+        overflow-y: hidden;
+        position: relative;
+        white-space: nowrap;
+    }
+
+    tr {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    td {
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+
+}

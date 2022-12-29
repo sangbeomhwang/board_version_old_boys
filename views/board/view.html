@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ item.idx }}번째 글입니다</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked@3.0.7/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/he@1.2.0/he.min.js"></script>
+  <link rel="stylesheet" href="/css/view.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/footer.css">
+</head>
+
+<body>
+  <div id="wrap">
+    <div id="header_wrap">
+      <div id="header">
+        <ul id="gnb">
+          <li class="on"><a href="/">HOME</a></li>
+          <li><a href="/board/list">BOARD</a></li>
+          <li><img src="https://i.ibb.co/RTjgWsX/imageedit-22-4204026569.png" alt="logo" width="100%" /></li>
+          {% if token %}
+          <li style="color: darkorange;">{{ token }}님</a></li>
+          <li><a href="/join/logout">LOGOUT</a></li>
+          {% else %}
+          <li><a href="/join/login">LOGIN</a></li>
+          <li><a href="/join/join">JOIN</a></li>
+          {% endif %}
+          <div id="snb">
+            <input type="checkbox" id="menu_icon" />
+            <label for="menu_icon">
+              <!--label은 inline style-->
+              <span></span>
+              <span></span>
+              <span></span>
+            </label>
+            <div id="hamburger_menu">
+              <ul>
+                <li><a href="#">PROFILE</a></li>
+                <li><a href="#">ADMIN</a></li>
+                <li><a href="#">CONTACT</a></li>
+              </ul>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+    <form action="" id="viewFrm">
+      <div id="article">
+        <div class="subject_div">
+          <span>제목 : </span>
+          <span class="article_subject">{{ item.subject }}</span>
+        </div>
+        <div id="article-info">
+          <div>
+            <span>작성자 : </span>
+            <span class="article_writer">{{ item.writer }}</span>
+          </div>
+          <span>작성일 : </span>
+          <span class="article_date">{{ item.register_date }}</span>
+          <span>조회수 : </span>
+          <span class="article_hit">{{ item.hit }}</span>
+        </div>
+        <div>
+          <span class="article_content" id="parsedText"></span>
+        </div>
+      </div>
+    </form>
+    <div class="btnBox">
+      <button type="button" class="prev" id="prev">이전 글</button>
+      <button type="button" class="next" id="next">다음 글</button>
+      {% if token %}
+      <button type="button" class="modify">
+        <a href="/board/modify?index={{ item.idx }}">수정하기</a>
+      </button>
+      <input type="hidden">
+      <button class="delete" name="delete"><a href="/board/delete?index={{ item.idx }}">삭제하기</a>
+      </button>
+      {% endif %}
+      <button type="button">
+        <a href="/board/list?index=0">목록 보기</a>
+      </button>
+    </div>
+    <div class="commentBox">
+      <div class="commentList">
+        {% for cl in item.comments %}
+        <ul>
+          <li id="commenter_list">{{cl.commenter}}</li>
+          <li>{{cl.comment}}</li>
+          <li class="comment_date">{{cl.register_date}}</li>
+          <li>
+            <form action="/board/delete?index={{ item.idx }}" method="post">
+              <input type="hidden" name="comment_idx" value="{{ cl.idx }}" />
+              <button type="submit" class="comment_delete" name="delete">🆇</button>
+            </form>
+          </li>
+        </ul>
+        {% endfor %}
+        <p class="commentLength">총 {{ item.comments|length }}개의 댓글</p>
+      </div>
+      <form action="/board/view?index={{ item.idx }}" method="post">
+        <div>
+          <input type="hidden" name="commenter" id="commenter" />
+          <textarea name="comment" class="comment_value" style="height: 70px;" placeholder="댓글을 작성해주세요"></textarea>
+          <button type="submit">댓글 작성</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="footer_wrap">
+      <div id="footer">
+        <ul>
+          <li>
+            <a class="team_ob" href="#">TEAM Old Boys</a>
+          </li>
+          <li>
+            <a class="team_ob" href="#">Joo Hyung Kim</a>
+          </li>
+          <li>
+            <a class="team_ob" href="#">Hyung Uoong Choi</a>
+          </li>
+          <li>
+            <a class="team_ob" href="#">Sang Beom Hwang</a>
+          </li>
+          <li>
+            <a class="personal" href="#">행복하자 우리</a>
+          </li>
+        </ul>
+        <div id="footer_info">
+          <h1 id="footer_logo">
+            <img src="https://i.ibb.co/8KhmKPr/team-logo.png" alt="footer_logo" />
+          </h1>
+          <div id="team_info">
+            <p>https://github.com/sangbeomhwang/board_old_boys.git</p>
+            <p>
+              1번 뇌섹남 : 김주형 / 2번 뇌섹남 : 최현웅 / 3번 뇌섹남 : 황상범
+            </p>
+            <p>TEAM Old Boys</p>
+            <p class="copyright">
+              Copyright © 2022. Kyungil Technical College. All rights
+              reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const initialValue = '{{ item.content }}';
+    const parsedElement = document.getElementById('parsedText');
+    parsedElement.innerHTML = marked(he.decode(initialValue));
+  </script>
+</body>
+</script>
+
+<input type="hidden" id="prevIdx" value="{{ prevIdx }}" />
+<input type="hidden" id="nextIdx" value="{{ nextIdx }}" />
+<script src="/js/view.js"></script>
+</body>
+
+</html>

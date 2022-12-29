@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+    <link rel="stylesheet" href="/css/write.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <form action="/board/modify?index={{ item.idx }}" id="modifyFrm" method="post">
+            <div>
+                <input type="hidden" name="writer"  id="writer" value="{{ item.writer }}">
+            </div>
+            <div>
+                <input type="text" name="subject" id="subject" value="{{ item.subject }}">
+            </div>
+            <div>
+                <div id="content">{{ item.content }}</div>
+                <input type="hidden" name="content" id="hiddenContent" value="{{ item.content }}">
+            </div>
+            <div id="buttonBox">
+                <button type="button" class="cancel">🔚 나가기</button>
+                <button type="submit" class="submit">수정 완료</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        const Editor = toastui.Editor;
+        const editor = new Editor({
+            el: document.querySelector('#content'),
+            height: '500px',
+            initialEditType: 'markdown',
+            previewStyle: 'vertical'
+        });
+        // document.getElementById('modifyFrm').addEventListener('submit', (e) => {
+        //     event.preventDefault();
+        //     let content = document.getElementById('content').innerHTML;
+        //     document.getElementById('hiddenContent').value = content; 
+        //     document.getElementById('modifyFrm').submit();
+        // });
+    </script>
+    <script src="/js/modify.js"></script>
+</body>
+
+</html>

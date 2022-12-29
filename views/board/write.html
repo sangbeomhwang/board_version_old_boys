@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+    <link rel="stylesheet" href="/css/write.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <input type="hidden" name="index" id="hiddenIdx" value="{{item.idx}}">
+        <form action="/board/write" id="writeFrm" method="post">
+            <div>
+                <input type="hidden" name="writer" id="writer">
+            </div>
+            <div>
+                <input type="text" name="subject" id="subject" placeholder="제목을 입력하세요">
+            </div>
+            <div id="content">
+                
+            </div>
+            <textarea name="content" id="content" cols="10" rows="10"></textarea>
+            <div id="buttonBox">
+                <button type="button" class="cancel">🔚 나가기</button>
+                <button type="submit" class="submit">등록하기</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        const Editor = toastui.Editor;
+        const editor = new Editor({
+            el: document.querySelector('#content'),
+            height: '500px',
+            initialEditType: 'markdown',
+            previewStyle: 'vertical'
+        });
+    </script>
+    <script src="/js/write.js"></script>
+</body>
+
+</html>

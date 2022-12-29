@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>:: Old_Boys 회원가입 ::</title>
+    <link rel="stylesheet" href="/css/join.css" />
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="logo">
+        <a href="/">
+          <img
+            src="https://i.ibb.co/RTjgWsX/imageedit-22-4204026569.png"
+            id="logoimg"
+          />
+        </a>
+      </div>
+      <form method="post" id="join" action="/join/profile">
+        <div id="joinidpw">
+          <div id="joinid" class="form_area">
+            <h3><label for="id" class="icon">아이디</label></h3>
+            <span id="inputbox" class="box">
+              <input
+                value="{{ token }}"
+                class="inbox"
+                type="text"
+                name="user_id"
+                minlength="8"
+                maxlength="20"
+                id="user_id"
+                placeholder="최소8자에서 최대20자를 입력해주세요"
+                disabled
+              />
+            </span>
+            <span id="alertid">아이디 형식을 다시 확인해주세요</span>
+          </div>
+          <div id="joinpw" class="form_area">
+            <h3><label for="pw" class="icon">비밀번호</label></h3>
+            <span id="inputbox" class="box">
+              <input
+                class="inbox"
+                type="password"
+                minlength="8"
+                maxlength="20"
+                name="user_pw"
+                id="pw"
+                placeholder="영문/숫자 8자리 이상으로 입력해주세요"
+              />
+            </span>
+            <span id="alertpw">비밀번호 형식을 다시 확인해주세요</span>
+          </div>
+          <div id="joinpw2" class="form_area">
+            <h3><label for="pw2" class="icon">비밀번호 재확인</label></h3>
+            <span id="inputbox" class="box">
+              <input
+                class="inbox"
+                type="password"
+                minlength="8"
+                maxlength="20"
+                id="pw2"
+                placeholder="비밀번호를 다시한번 입력해주세요"
+              />
+            </span>
+            <span id="alertpw2">비밀번호 형식을 다시 확인해주세요</span>
+          </div>
+        </div>
+        <div id="joininfo">
+          <div id="joinname" class="form_area">
+            <h3><label for="name" class="icon">이름</label></h3>
+            <span id="inputbox" class="box">
+              <input
+                value="{{ userInfo.user_name }}"
+                class="inbox"
+                type="text"
+                minlength="2"
+                id="name"
+                name="user_name"
+                placeholder="이름을 입력해주세요"
+              />
+            </span>
+          </div>
+          <div id="joinnick" class="form_area">
+            <h3><label for="nick" class="icon">닉네임</label></h3>
+            <span id="inputbox" class="box">
+              <input
+                value="{{ userInfo.user_nickname }}"
+                class="inbox"
+                type="text"
+                id="nick"
+                name="user_nickname"
+                placeholder="게시판에 사용될 별명을 입력해주세요"
+              />
+            </span>
+          </div>
+          <div id="joinbirth" class="form_area">
+            <h3><label for="year" class="icon">생년월일</label></h3>
+            <span id="inputbox" class="box">
+              <input
+                class="inbox"
+                value="{{ userInfo.user_birth }}"
+                type="date"
+                id="name"
+                name="user_birth"
+              />
+            </span>
+          </div>
+          <div id="joingender" class="form_area">
+            <h3><label for="user_gender" class="icon">성별</label></h3>
+            <span class="box">
+              <!-- <select id="nick" class="inbox"  name="user_gender">
+                            <option value="default">선택</option>
+                            <option value="male">남성</option>
+                            <option value="female">여성</option>
+                        </select> -->
+              <input
+                type="text"
+                value="{{ userInfo.user_gender }}"
+                id="nick"
+                class="inbox"
+                name="user_gender"
+                disabled
+              />
+            </span>
+          </div>
+        </div>
+        <div id="joincontact">
+          <div id="joinmobile">
+            <h3><label for="mobile">휴대전화</label></h3>
+            <div class="form_area2">
+              <span id="inputbox" class="box">
+                <input
+                  value="{{ userInfo.user_mobile }}"
+                  class="inbox"
+                  type="text"
+                  id="name"
+                  name="user_mobile"
+                  placeholder="01012341234"
+                />
+              </span>
+            </div>
+          </div>
+          <div class="form_area">
+            <h3><label for="mobile">이메일</label></h3>
+            <span id="inputbox" class="box">
+              <input
+                value="{{ userInfo.user_email }}"
+                class="inbox"
+                type="text"
+                id="name"
+                name="user_email"
+                placeholder="example@example.com"
+              />
+            </span>
+          </div>
+          <!-- <div id="joinemail">
+                    <h3><label for="mail">이메일</label></h3>
+                    <div class='form_area3'>
+                        <span class="box4">
+                            <input class="inbox4" type="text" name="user_" id="mail" placeholder="Email ID">
+                        </span> 
+                        <span class="email">@</span>
+                        <span class="box4">
+                            <input class="inbox4" type="text" name="domain" id="domain" placeholder="example.com">
+                        </span>
+                    </div>
+                </div> -->
+        </div>
+        <div class="form_area" id="bottom_area">
+          <button type="submit" class="btn">수정</button>
+        </div>
+      </form>
+      <div id="footer_wrap">
+        <div id="footer">
+          <ul>
+            <li>
+              <a class="team_ob" href="#">TEAM : old boys</a>
+            </li>
+            <li>
+              <a class="team_ob" href="#">Joo Hyung Kim</a>
+            </li>
+            <li>
+              <a class="team_ob" href="#">Hyung Uoong Choi</a>
+            </li>
+            <li>
+              <a class="team_ob" href="#">Sang Beom Hwang</a>
+            </li>
+            <li>
+              <a class="personal" href="#">행복하자 우리</a>
+            </li>
+          </ul>
+          <div id="footer_info">
+            <h1 id="footer_logo">
+              <img
+                src="https://i.ibb.co/MpWgbfY/team-logo.png"
+                alt="footer_logo"
+              />
+            </h1>
+            <div id="team_info">
+              <p>https://github.com/sangbeomhwang/board_old_boys.git</p>
+              <p>
+                1번 뇌섹남 : 김주형 / 2번 뇌섹남 : 최현웅 / 3번 뇌섹남 : 황상범
+              </p>
+              <p>old boys</p>
+              <p class="copyright">
+                Copyright © 2022. Kyungil Technical College. All rights
+                reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

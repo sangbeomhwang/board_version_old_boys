@@ -1,0 +1,561 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "KorailRoundGothicBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KorailRoundGothicBold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: "Pretendard-Regular";
+  color: #ddd;
+}
+
+#wrap {
+  width: 100%;
+  /* background: rgba(18, 18, 18, 1); */
+  background: #1a1b1e;
+}
+
+#header_wrap {
+  width: 100%;
+  height: 70px;
+  background: transparent;
+  z-index: 2;
+}
+
+#header_wrap.on {
+  background: rgba(18, 18, 18, 1);
+  transition: all 0.5s ease-out;
+  position: fixed;
+  top: 0px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #555;
+}
+
+#header_wrap.off {
+  background: transparent;
+  transition: all 0.5s ease-out;
+}
+
+/* #header {
+  height: 800px;
+  background: transparent;
+} */
+
+#header > ul {
+  width: 1440px;
+  height: 70px;
+  line-height: 70px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+#header > ul > li {
+  width: 80px;
+  margin: 0 10px 0 10px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  color: #ddd;
+}
+
+#header > ul > li > a {
+  text-decoration: none;
+  color: #ddd;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+#snb {
+  position: absolute;
+  top: 10px;
+  right: 10%;
+}
+
+input[id="menu_icon"] {
+  display: none;
+}
+
+input[id="menu_icon"] + label {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+  /* 커서를 올려놓을 때 모양이 바뀐다. */
+}
+
+input[id="menu_icon"] + label > span {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 5px;
+  border-radius: 30px;
+  background: #fff;
+  transition: all 0.35s;
+  /* 진행되는 과정들을 천천히 보여줄 수 있다. 0.35초 동안 진행됨 */
+  z-index: 1;
+}
+
+input[id="menu_icon"] + label > span:nth-child(1) {
+  top: 0px;
+}
+
+input[id="menu_icon"] + label > span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  /* 엘리먼트를 변형할 때 쓴다. 비틀거나 구부리거나 돌릴 때 . 여러가지로 모양을 바꿀 때 */
+}
+
+input[id="menu_icon"] + label > span:nth-child(3) {
+  bottom: 0px;
+}
+
+input[id="menu_icon"]:checked + label > span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+input[id="menu_icon"]:checked + label > span:nth-child(2) {
+  opacity: 0;
+}
+
+input[id="menu_icon"]:checked + label > span:nth-child(3) {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+}
+
+#menu_icon + label + #hamburger_menu {
+  position: fixed;
+  /* 스크롤을 내리더라도 같은 위치에서 붙어다닌다. */
+  width: 100%;
+  height: 70px;
+  background: rgb(18, 18, 18);
+  top: 0px;
+  left: 0px;
+  box-sizing: border-box;
+  z-index: -1;
+  transition: all 0.35s;
+  box-shadow: 0 8px 8px -8px #555;
+}
+
+#menu_icon:checked + label + #hamburger_menu {
+  right: 0px;
+  top: 70px;
+  z-index: 1;
+}
+
+#menu_icon:checked + label + #hamburger_menu > ul > li {
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+#menu_icon:checked + label + #hamburger_menu > ul > li > a {
+  color: rgba(240, 236, 98, 1);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+#hamburger_menu > ul {
+  display: flex;
+  justify-content: space-around;
+  width: 600px;
+  margin: 0 auto;
+}
+
+#hamburger_menu > ul > li > a {
+  color: transparent;
+}
+
+#header > ul > li:hover,
+li.on {
+  color: rgba(250, 190, 25);
+  transition: all 0.2s ease-out;
+}
+
+#header > ul > li::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background-color: rgba(250, 190, 25);
+  position: absolute;
+  bottom: 0px;
+  left: -80px;
+  transition: all 0.2s ease-out;
+}
+
+#header > ul > li:hover::after {
+  left: 0px;
+  transition: all 0.3s ease-in;
+}
+
+li.hover {
+  content: "";
+  width: 80px;
+  height: 70px;
+  color: black;
+  background-color: rgba(250, 190, 25);
+  transition: all 0.2s ease-out;
+}
+
+#intro_wrap {
+  width: 100%;
+  height: 820px;
+  background-color: #1a1b1e;
+}
+
+#intro {
+  overflow: hidden;
+  margin: 0 auto;
+  width: 1200px;
+  height: 820px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#intro_text {
+  padding-left: 10%;
+  padding-top: 20%;
+  width: 700px;
+}
+
+#intro_text > h2 {
+  font: 2em sans-serif;
+  padding-bottom: 20px;
+}
+
+#intro_text > .text1 {
+  font: 2em sans-serif;
+}
+
+#intro_text > .text2 {
+  font: 2.5em sans-serif;
+}
+
+#intro_text > p {
+  padding-top: 10px;
+  font-size: 4em;
+  position: absolute;
+}
+
+#intro_text > p > span {
+  font-family: "KorailRoundGothicBold";
+  color: rgb(250, 190, 25);
+}
+
+#intro_visual {
+  padding-top: 15%;
+}
+
+#intro_visual {
+  animation-name: fadeInUp;
+  animation-duration: 3s;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#intro_text {
+  animation-name: slideInRight;
+  animation-duration: 3s;
+  animation-delay: 1.5s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  opacity: 0;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(-60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+#intro_text.done {
+  opacity: 1;
+}
+
+#visual_wrap {
+  width: 100%;
+  height: 820px;
+}
+
+/* 무한 슬라이드 */
+#visual {
+  width: 100%;
+}
+
+#slideSpace {
+  width: 100%;
+  margin: 100px 0;
+}
+
+#slidePart {
+  width: 100%;
+  max-width: 1200px;
+  height: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#slidePart > #slideShow {
+  overflow: hidden;
+}
+
+#slidePart > #slideShow > .slides {
+  display: flex;
+  position: relative;
+  transition: 0.5s;
+}
+
+#slidePart > #slideShow > .slides > li > img {
+  width: 1200px;
+  height: 600px;
+  vertical-align: top;
+}
+
+#slidePart > #slideShow > .controller > span {
+  cursor: pointer;
+  color: rgba(200, 200, 200, 0.5);
+  font-size: 40px;
+  width: 25px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+
+#slidePart > #slideShow > .controller > span:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+#slidePart > #slideShow > .controller > .prev {
+  position: absolute;
+  left: 30px;
+  top: 300px;
+  font-size: 3rem;
+  opacity: 0.5;
+}
+
+#slidePart > #slideShow > .controller > .next {
+  position: absolute;
+  right: 60px;
+  top: 300px;
+  font-size: 3rem;
+  opacity: 0.5;
+}
+
+.title {
+  margin: 50px 0 0 0;
+  font-size: 50px;
+  color: #ddd;
+  font-family: "Ubuntu", sans-serif;
+  position: relative;
+  transition: all 0.5s ease-out;
+}
+
+.title::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 160px;
+  height: 4px;
+  margin-top: 5px;
+  left: -160px;
+  transition: all 0.5s ease-out;
+}
+
+.title:hover::after {
+  left: 0px;
+}
+
+.title.T1:hover {
+  color: rgba(240, 236, 98, 1);
+  transition: all 0.5s ease-out;
+}
+
+.title.T1::after {
+  background-color: rgba(240, 236, 98, 1);
+}
+
+.title.T2:hover {
+  color: rgb(250, 190, 25);
+  transition: all 0.5s ease-out;
+}
+
+.title.T2::after {
+  background-color: rgb(250, 190, 25);
+}
+
+#about_wrap {
+  width: 100%;
+  height: 860px;
+  background-color: rgb(47, 47, 47);
+}
+
+#about {
+  overflow: hidden;
+  margin: 0 auto;
+  width: 1000px;
+  height: 820px;
+}
+
+#team_info > ul {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+#team_info > ul > li > p {
+  text-align: center;
+  font-size: 20px;
+  font-family: "KorailRoundGothicBold";
+}
+
+#team_info > ul > li > p > span {
+  color: rgb(250, 190, 25);
+}
+
+#team_info > ul > li > div {
+  background: #565656;
+  width: 220px;
+  height: 260px;
+  border-radius: 12px;
+  margin-top: 20px;
+  position: relative;
+}
+
+#team_info > ul > li > div::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: -10px;
+  left: 45%;
+  background: #565656;
+  transform: rotate(45deg);
+}
+
+#footer_wrap {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  background: rgb(18, 18, 18);
+}
+
+#footer {
+  width: 1000px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+#footer > ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 20px 0;
+  margin-left: 40px;
+  box-sizing: border-box;
+}
+
+#footer > ul > li > a {
+  color: #aeaeae;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+#footer > ul > li > .team_ob::after {
+  content: "|";
+  font-size: 11px;
+  font-weight: lighter;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+#footer > ul > li > .personal {
+  font-weight: bold;
+}
+
+#footer > ul > li > span {
+  font-weight: lighter;
+  color: #aeaeae;
+  font-size: 11px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+#footer > #footer_info {
+  width: 100%;
+  display: flex;
+}
+
+#footer > #footer_info > h1 {
+  padding-left: 25px;
+  box-sizing: border-box;
+}
+
+#footer > #footer_info > h1 > img {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+#team_info {
+  box-sizing: border-box;
+}
+
+#team_info > p {
+  color: #aeaeae;
+  font-size: 12px;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+
+#team_info > .copyright {
+  padding: 10px 0 10px 0;
+  box-sizing: border-box;
+}
