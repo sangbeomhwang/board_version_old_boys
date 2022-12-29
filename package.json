@@ -1,0 +1,27 @@
+{
+  "name": "latest3_ver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sangbeomhwang/board_old_boys.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sangbeomhwang/board_old_boys/issues"
+  },
+  "homepage": "https://github.com/sangbeomhwang/board_old_boys#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "mysql2": "^2.3.3",
+    "nunjucks": "^3.2.3"
+  }
+}
