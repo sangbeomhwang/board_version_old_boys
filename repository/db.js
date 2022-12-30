@@ -5,7 +5,7 @@ const pool = mysql
     host: "127.0.0.1",
     port: "3306",
     user: "root",
-    password: "Hhsb4114!@",
+    password: "Rlawn-8318",
     database: "old_boys",
     connectionLimit: 5,
   })
