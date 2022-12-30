@@ -59,7 +59,12 @@
       <tbody>
         {% for item in list %}
         <tr>
-          <td>{{item.idx}}</td>
+          <td>
+          <form action="/board/list?index=0" method="post">
+            <input type="hidden" name="item_idx" value="{{ item.idx }}" />
+            <button class="delete_item">🆇</button>
+          </form>
+          {{item.idx}}</td>
           <td>
             <a href="/board/view?index={{item.idx}}">{{item.subject}}</a>
           </td>

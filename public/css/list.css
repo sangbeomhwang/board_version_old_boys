@@ -254,3 +254,13 @@ a {
 
 
 }
+
+td > form {
+    display: inline-block;
+}
+
+.delete_item {
+    background-color: transparent;
+    border: none;
+    margin-right: 10px;
+}

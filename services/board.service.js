@@ -5,6 +5,12 @@ exports.getList = async () => {
   return result;
 };
 
+exports.postList = async (idx) => {
+  const result = await board.deleteItem(idx);
+  return result;
+}
+
+
 exports.getView = async (idx) => {
   const result = await board.findOne(idx);
   return result;

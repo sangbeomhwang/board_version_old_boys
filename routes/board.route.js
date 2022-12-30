@@ -3,6 +3,7 @@ const router = express.Router();
 const controller = require("../controllers/board.controller");
 
 router.get("/list", controller.getList);
+router.post("/list", controller.postList);
 router.get("/view", controller.getView);
 router.post("/view", controller.postView);
 router.get("/write", controller.getWrite);

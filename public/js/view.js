@@ -179,17 +179,19 @@ commentBtn.addEventListener("click", (e) => {
 // 글 수정 삭제 권한
 const writerCheck = document.querySelector(".article_writer");
 const commenterCheck = document.querySelectorAll("#commenter_list");
+console.log(writerCheck.innerHTML);
+console.log(token)
 
 modifyBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  if (writerCheck.innerHTML !== token) {
+  if (writerCheck.innerHTML !== token && token !== "admin") {
     return alert("다른 회원이 쓴 글은 수정할 수 없습니다");
   } else location.href = "/board/modify?index=" + index;
 });
 
 deleteBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  if (writerCheck.innerHTML !== token) {
+  if (writerCheck.innerHTML !== token && token !== "admin") {
     return alert("다른 회원이 쓴 글은 삭제할 수 없습니다");
   }
   if (confirm("정말 삭제하시습니까 ?")) {
@@ -199,7 +201,9 @@ deleteBtn.addEventListener("click", (e) => {
 
 
 for (let i = 0; i < commentDeleteBtns.length; i++) {
-  if (commenterCheck[i].innerHTML !== token) {
+  if (token === "admin") {
+    commentDeleteBtns[i].style.display = "block";
+  } else if (commenterCheck[i].innerHTML !== token) {
     commentDeleteBtns[i].style.display = "none";
   }
 }

@@ -10,6 +10,14 @@ exports.getList = async (req, res) => {
   res.render("board/list.html", { list, token: req.cookies.token });
 };
 
+exports.postList = async (req, res) => {
+  console.log('req.body :',req.body);
+  const itemIdx = req.body.item_idx;
+  await boardService.postList(itemIdx);
+  res.redirect(`/board/list?index=0`);
+}
+
+
 exports.getView = async (req, res) => {
   const idx = req.query.index;
   const item = await boardService.getView(idx);

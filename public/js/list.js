@@ -165,3 +165,15 @@ searchHandler = (event) => {
 };
 
 searchBtn.addEventListener("click", searchHandler);
+
+
+
+const adminDelete = document.querySelectorAll(".delete_item");
+const token = document.cookie.split("=")[1].replace(/"/g, "");
+console.log(token)
+
+if (token !== "admin") {
+  adminDelete.forEach(v => {
+    v.style.display = "none";
+  });
+}
