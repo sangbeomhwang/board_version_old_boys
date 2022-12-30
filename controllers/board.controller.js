@@ -26,21 +26,24 @@ exports.getView = async (req, res) => {
   res.render("board/view.html", { item, prevIdx, nextIdx, token: req.cookies.token });
 };
 
-exports.postView = async (req, res) => {
-    const idx = req.query.index;
+exports.postView = async (req, res, next) => {
     const commentData = req.body;
-    commentData.boardIdx = idx;
     await boardService.postView(commentData);
-    res.redirect(`/board/view?index=${idx}`);
+    res.redirect(`/board/view?index=${req.body.boardIdx}`);
+    next()
 };
 
+exports.postLike = async (req, res) => {
+  const idx = req.body.index;
+  await boardService.postLike(req.body);
+  res.redirect(`/board/view?index=${idx}`);
+}
 exports.getWrite = (req, res) => {
   res.render("board/write.html", { token: req.cookies.token });
 };
 
 exports.postWrite = async (req, res) => {
   const writeData = req.body;
-  console.log(writeData);
   await boardService.postWrite(writeData);
   res.redirect("/board/list?index=0");
 };
@@ -60,18 +63,10 @@ exports.postModify = async (req, res) => {
   res.redirect(`/board/view?index=${idx}`);
 };
 
-// exports.postDelete = async (req, res) => {
-//   const idx = req.query.index;
-//   await boardService.postDelete(idx);
-//   res.redirect("/board/list?index=0");
-// };
-
-exports.postDelete2 = async (req, res) => {
-  const idx = req.query.index;
-  console.log(req.body);
-  const commentIdx = req.body.comment_idx;
-  await boardService.postDelete2(commentIdx);
-  res.redirect(`/board/view?index=${idx}`);
+exports.postDelete = async (req, res) => {
+  const commentIdx = req.body.commentIdx;
+  await boardService.postDelete(commentIdx);
+  res.redirect(`/board/view?index=${req.body.boardIdx}`);
 };
 
 

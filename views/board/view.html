@@ -47,28 +47,39 @@
         </ul>
       </div>
     </div>
-
-    <form action="" id="viewFrm">
-      <div id="article">
-        <div class="subject_div">
-          <span>제목 : </span>
-          <span class="article_subject">{{ item.subject }}</span>
-        </div>
-        <div id="article-info">
-          <div>
-            <span>작성자 : </span>
-            <span class="article_writer">{{ item.writer }}</span>
+    <div id="article_box">
+      <form action="" id="viewFrm">
+        <div id="article">
+          <div class="subject_div">
+            <span>제목 : </span>
+            <span class="article_subject">{{ item.subject }}</span>
           </div>
-          <span>작성일 : </span>
-          <span class="article_date">{{ item.register_date }}</span>
-          <span>조회수 : </span>
-          <span class="article_hit">{{ item.hit }}</span>
+          <div id="article-info">
+            <div>
+              <span>작성자 : </span>
+              <span class="article_writer">{{ item.writer }}</span>
+            </div>
+            <span>작성일 : </span>
+            <span class="article_date">{{ item.register_date }}</span>
+            <span>조회수 : </span>
+            <span class="article_hit">{{ item.hit }}</span>
+          </div>
+          <div>
+            <span class="article_content" id="parsedText"></span>
+          </div>
         </div>
-        <div>
-          <span class="article_content" id="parsedText"></span>
-        </div>
+      </form>
+      <div id="likeit_box">
+        <form action="/board/like" method="post">
+          <input type="hidden" name="likeit" value="{{item.likeit}}" />
+          <input type="hidden" name="index" value="{{item.idx}}" />
+          <button type="submit">
+            <span><img src="https://cdn-icons-png.flaticon.com/512/25/25297.png" width="30px" alt="좋아요"></span>
+            <span>{{ item.likeit }}</span>
+          </button>
+        </form>
       </div>
-    </form>
+    </div>
     <div class="btnBox">
       <button type="button" class="prev" id="prev">이전 글</button>
       <button type="button" class="next" id="next">다음 글</button>
@@ -92,17 +103,20 @@
           <li>{{cl.comment}}</li>
           <li class="comment_date">{{cl.register_date}}</li>
           <li>
-            <form action="/board/delete?index={{ item.idx }}" method="post">
-              <input type="hidden" name="comment_idx" value="{{ cl.idx }}" />
-              <button type="submit" class="comment_delete" name="delete">🆇</button>
+            <form action="/board/delete" method="post">
+              <input type="hidden" name="boardIdx" id="commentIdx" value="{{item.idx}}" />
+              <input type="hidden" name="commentIdx" id="commentIdx" value="{{cl.idx}}" />
+              <button type="submit" class="comment_delete" name="commentDelete">🆇</button>
             </form>
           </li>
         </ul>
         {% endfor %}
         <p class="commentLength">총 {{ item.comments|length }}개의 댓글</p>
       </div>
-      <form action="/board/view?index={{ item.idx }}" method="post">
+      <form action="/board/add_comment" method="post">
         <div>
+          <input type="hidden" name="commentidx" value="{{ cl.idx }}" />
+          <input type="hidden" name="boardIdx" id="commentIdx" value="{{item.idx}}" />
           <input type="hidden" name="commenter" id="commenter" />
           <textarea name="comment" class="comment_value" style="height: 70px;" placeholder="댓글을 작성해주세요"></textarea>
           <button type="submit">댓글 작성</button>
