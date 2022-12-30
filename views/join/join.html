@@ -19,147 +19,125 @@
       </div>
       <form method="post" id="join" action="/join/join">
         <div id="joinidpw">
-          <div id="joinid" class="form_area">
-            <h3><label for="id" class="icon">아이디</label></h3>
+          <div id="joinid" class="form_area4">
+            <h3><label for="user_id" class="icon">아이디</label></h3>
             <span id="inputbox" class="box">
               {{token.value}}
               <input
                 value=""
                 class="inbox"
                 type="text"
+                onclick="openIdCheckPopup()"
                 name="user_id"
-                minlength="8"
-                maxlength="20"
                 id="user_id"
-                placeholder="최소8자에서 최대20자를 입력해주세요"
-              />
+                placeholder="아이디 중복 확인을 완료하면 자동으로 입력됩니다."
+                />
               <span>
                 <button
                   type="button"
+                  class="btn"
                   id="idCheckBtn"
                   onclick="openIdCheckPopup()"
                 >
-                  아이디 중복
+                아이디 중복
                 </button>
               </span>
             </span>
-            <span id="alertid">아이디 형식을 다시 확인해주세요</span>
+            <span id="alertid" class="alertmain">아이디 형식을 다시 확인해주세요</span>
           </div>
           <div id="joinpw" class="form_area">
-            <h3><label for="pw" class="icon">비밀번호</label></h3>
+            <h3><label for="user_pw" class="icon">비밀번호</label></h3>
             <span id="inputbox" class="box">
               <input
                 class="inbox"
                 type="password"
-                minlength="8"
-                maxlength="20"
                 name="user_pw"
-                id="pw"
+                id="user_pw"
                 placeholder="영문/숫자 8자리 이상으로 입력해주세요"
               />
             </span>
-            <span id="alertpw">비밀번호 형식을 다시 확인해주세요</span>
+            <span id="alertpw1" class="alertmain">영문,숫자,특수문자를 포함하여 8글자 이상</span>
           </div>
           <div id="joinpw2" class="form_area">
-            <h3><label for="pw2" class="icon">비밀번호 재확인</label></h3>
+            <h3><label for="user_pw2" class="icon">비밀번호 재확인</label></h3>
             <span id="inputbox" class="box">
               <input
                 class="inbox"
                 type="password"
-                minlength="8"
-                maxlength="20"
-                id="pw2"
+                id="user_pw2"
                 placeholder="비밀번호를 다시한번 입력해주세요"
               />
             </span>
-            <span id="alertpw2">비밀번호 형식을 다시 확인해주세요</span>
+            <span id="alertpw2" class="alertmain">비밀번호가 일치하지 않습니다. 다시 입력해주세요</span>
           </div>
         </div>
         <div id="joininfo">
           <div id="joinname" class="form_area">
-            <h3><label for="name" class="icon">이름</label></h3>
+            <h3><label for="user_name" class="icon">이름</label></h3>
             <span id="inputbox" class="box">
               <input
                 class="inbox"
                 type="text"
                 minlength="2"
-                id="name"
+                id="user_name"
                 name="user_name"
                 placeholder="이름을 입력해주세요"
               />
             </span>
+            <span id="alertname" class="alertmain">올바른 형식의 이름을 입력하세요</span>
           </div>
           <div id="joinnick" class="form_area">
-            <h3><label for="nick" class="icon">닉네임</label></h3>
+            <h3><label for="user_nick" class="icon">닉네임</label></h3>
             <span id="inputbox" class="box">
               <input
                 class="inbox"
                 type="text"
-                id="nick"
+                id="user_nick"
                 name="user_nickname"
                 placeholder="별명을 입력해주세요"
               />
             </span>
+            <span id="alertnick" class="alertmain">올바른 형식의 별명을 입력하세요</span>
           </div>
           <div id="joinbirth" class="form_area">
-            <h3><label for="year" class="icon">생년월일</label></h3>
+            <h3><label for="user_birth" class="icon">생년월일</label></h3>
             <span id="inputbox" class="box">
-              <input class="inbox" type="date" id="name" name="user_birth" />
+              <input class="inbox" type="date" id="user_birth" name="user_birth" />
             </span>
+            <span id="alertbirth1" class="alertmain">만 14세 미만은 가입이 불가능합니다. 나이먹고 다시오세요</span>
+            <span id="alertbirth2" class="alertmain">생년월일은 필수항목입니다.</span>
           </div>
           <div id="joingender" class="form_area">
             <h3><label for="user_gender" class="icon">성별</label></h3>
             <span class="box">
-              <select id="nick" class="inbox" name="user_gender">
+              <select id="user_gender" class="inbox" name="user_gender">
                 <option value="default" checked>선택</option>
-                <option value="male">남성</option>
-                <option value="female">여성</option>
+                <option value="남성">남성</option>
+                <option value="여성">여성</option>
               </select>
+              <span id="alertgender" class="alertmain">필수 입력항목입니다. 성별을 선택해주세요</span>
             </span>
           </div>
         </div>
         <div id="joincontact">
-          <div id="joinmobile">
-            <h3><label for="mobile">휴대전화</label></h3>
-            <div class="form_area2">
+          <div id="joinmobile" class="form_area">
+            <h3><label for="user_mobile">휴대전화</label></h3>
               <span id="inputbox" class="box">
-                <input
-                  class="inbox"
-                  type="text"
-                  id="name"
-                  name="user_mobile"
-                  placeholder="01012341234"
-                />
+                <input class="inbox" type="text" id="user_mobile" name="user_mobile" placeholder="-을 제외한 번호만 입력해주세요"/>
               </span>
+              <span id="alertmobile" class="alertmain">010으로 시작하는 "-"를 제외한 번호만 입력해주세요</span>
             </div>
           </div>
           <div class="form_area">
-            <h3><label for="mobile">이메일</label></h3>
+            <h3><label for="user_email">이메일</label></h3>
             <span id="inputbox" class="box">
-              <input
-                class="inbox"
-                type="text"
-                id="name"
-                name="user_email"
-                placeholder="example@example.com"
-              />
+              <input class="inbox" type="text" id="user_email" name="user_email" placeholder="example@example.com"/>
             </span>
+            <span id="alertemail" class="alertmain">이메일은 example@example.com 형식으로 입력해주세요</span>
           </div>
-          <!-- <div id="joinemail">
-                    <h3><label for="mail">이메일</label></h3>
-                    <div class='form_area3'>
-                        <span class="box4">
-                            <input class="inbox4" type="text" name="user_" id="mail" placeholder="Email ID">
-                        </span> 
-                        <span class="email">@</span>
-                        <span class="box4">
-                            <input class="inbox4" type="text" name="domain" id="domain" placeholder="example.com">
-                        </span>
-                    </div>
-                </div> -->
         </div>
-        <div class="form_area" id="bottom_area">
-          <button type="submit" class="btn">가입하기</button>
+        <div class="form_area5" id="bottom_area">
+          <button type="submit" class="btn" id="confirmBtn">가입하기</button>
         </div>
       </form>
       <div id="footer_wrap">

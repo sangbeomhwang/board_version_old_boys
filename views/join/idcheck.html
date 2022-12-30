@@ -5,11 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/idcheck.css">
 </head>
 <body>
-    <form action="/join/idcheck" method="post">
-        <input type="text" id="chlidId" name="user_id">
-        <button id="closeButton" onclick="closeAndSendValue()">중복 확인하기</button>
+    <form action="/join/idcheck" method="post" id="form_area">
+        <h3><label for="user_id">아이디 중복 확인하기</label></h3>
+        <span id="inputbox" class="box">
+            <input type="text" id="chlidId" name="user_id" style="background-color: #fff;" class="inbox">
+            <button id="closeButton" onclick="closeAndSendValue()" class="btn">중복 확인하기</button>
+        </span>
         <span id="failId"style="display:none; color:red;">
             <p>아이디가 이미 존재합니다.다른 아이디를 사용해주세요</p>
         </span>

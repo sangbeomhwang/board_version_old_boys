@@ -8,7 +8,8 @@ exports.postJoin = async (req, res) => {
   const userData = req.body;
   await join_service.postJoin(userData);
   const user = req.body;
-  // console.log(req.body);
+  console.log(userData);
+  console.log(user)
   try {
     res.setHeader("Set-Cookie", `token="${user.user_id}"; path=/;`);
     res.redirect("/join/welcome");
