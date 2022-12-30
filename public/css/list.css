@@ -40,11 +40,11 @@ h2 {
 }
 
 .index {
-    width: 7%;
+    width: 9%;
 }
 
 .subject {
-    width: 60%;
+    width: 53%;
     padding-left: 30%;
 }
 
@@ -57,8 +57,13 @@ h2 {
 }
 
 .hit {
-    width: 7%;
+    width: 6%;
 }
+
+.likeit {
+    width: 6%;
+}
+
 
 #btnBox {
     margin: 20px auto;

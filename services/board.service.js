@@ -26,6 +26,10 @@ exports.postView = async (commentData) => {
     return await board.addComment(commentData)
 }
 
+exports.postLike = async (idx) => {
+  return await board.addLike(idx)
+}
+
 exports.postWrite = async (writeData) => {
   const result = await board.submit(writeData);
   return result;
@@ -36,12 +40,8 @@ exports.postModify = async (writeData) => {
   return result;
 };
 
-// exports.postDelete = async (idx) => {
-//   const result = await board.deleteItem(idx);
-//   return result;
-// };
 
-exports.postDelete2 = async (commentIdx) => {
+exports.postDelete = async (commentIdx) => {
   const result = await board.deleteComment(commentIdx);
   return result;
 };

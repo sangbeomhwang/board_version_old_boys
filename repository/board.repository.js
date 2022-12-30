@@ -72,6 +72,7 @@ exports.addComment = async (commentData) => {
   const { boardIdx, commenter, comment } = commentData;
   const add = `INSERT INTO comments(boardIdx, commenter, comment) 
   values('${boardIdx}', '${commenter}', '${comment}');`;
+  console.log("add :", add)
   return pool.query(add);
 };
 
@@ -92,6 +93,13 @@ exports.deleteComment = async (commentIdx) => {
   const sql = `DELETE FROM comments where idx=${commentIdx};`;
   await pool.query(sql);
 };
+
+exports.addLike = async (likeBody) => {
+  const { likeit, index } = likeBody
+  const sql = `UPDATE board SET likeit = likeit + 1  WHERE idx = ${index};`;
+  await pool.query(sql);
+}
+
 
 
 // this.findOne(1).then(data=>console.log(data))
