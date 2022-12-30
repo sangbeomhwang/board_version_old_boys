@@ -1,0 +1,38 @@
+* {
+    background-color: rgb(47,47,47);
+    color : #ddd;
+    outline : none;
+}
+
+.btn {
+    margin-top : 20px;
+    border-radius: 4px;
+    text-align: center;
+    /* line-height: 50px;
+    font-weight: bold; */
+    background: #000;
+}
+
+.btn:hover {
+    background-color: #333;
+    color: #FABE19;
+    cursor: pointer;   background: #1A1B1E;
+}
+
+.inbox {
+    border: none;
+    width: 120px;
+    height: 35px;
+    color:black; 
+    
+}
+
+.box {
+    display: inline-block;
+    width:150px;
+    height:40px;
+    border: 1px solid #dadada;
+    box-sizing: border-box;
+    background-color: white;
+    margin-top:10px;
+}
